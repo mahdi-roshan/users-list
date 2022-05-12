@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap'
-import { BiEditAlt } from 'react-icons/bi';
-import { AiOutlineDelete } from 'react-icons/ai';
+import UsersList from './components/users/UsersList';
+
 import './App.css'
 
 function App() {
@@ -80,37 +80,7 @@ function App() {
           </div>
           <div className="col-12 mt-3">
             <div class="card">
-              <div class="table-responsive">
-                <table class="table">
-                  <thead class="thead-light">
-                    <tr>
-                      <th scope="col">Name</th>
-                      <th scope="col">Family</th>
-                      <th scope="col">Username</th>
-                      <th scope="col">Email</th>
-                      <th scope="col">Birthday</th>
-                      <th scope="col">Gender</th>
-                      <th scope="col">Role</th>
-                      <th scope="col" className="text-center">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody class="customtable">
-                    <tr>
-                      <td>mahdi</td>
-                      <td>Roshanzamir</td>
-                      <td>mahdi-roshan</td>
-                      <td>mahdi@gmail.com</td>
-                      <td>21/8/1997</td>
-                      <td>male</td>
-                      <td>Admin</td>
-                      <td className="text-center">
-                        <BiEditAlt className="user-edit-icon" />
-                        <AiOutlineDelete className="user-delete-icon" />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              <UsersList />
             </div>
           </div>
         </div>
