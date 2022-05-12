@@ -1,7 +1,7 @@
 import { Modal, Button } from 'react-bootstrap'
 import UserForm from './UserForm'
 
-export default function UserListHead({ show, handleClose, handleShow }) {
+export default function ModalAddUser({ show, handleClose, handleShow }) {
     return (
         <>
             <h5 class="card-title m-b-0">User list</h5>
