@@ -1,8 +1,13 @@
 import React from 'react';
-import { BiEditAlt } from 'react-icons/bi';
-import { AiOutlineDelete } from 'react-icons/ai';
+import UserItem from './UserItem'
+
 
 export default function UsersList() {
+
+    const people = [
+        { name: 'mahdi', family: 'Roshanzamir', username: 'mahdi-roshan', email: 'mahdi@gmail.com', birthday: '21/8/1997', gender: 'male', role: 'Admin' }
+    ];
+
     return (
         <>
             <div class="table-responsive">
@@ -20,19 +25,7 @@ export default function UsersList() {
                         </tr>
                     </thead>
                     <tbody class="customtable">
-                        <tr>
-                            <td>mahdi</td>
-                            <td>Roshanzamir</td>
-                            <td>mahdi-roshan</td>
-                            <td>mahdi@gmail.com</td>
-                            <td>21/8/1997</td>
-                            <td>male</td>
-                            <td>Admin</td>
-                            <td >
-                                <BiEditAlt className="user-edit-icon" />
-                                <AiOutlineDelete className="user-delete-icon" />
-                            </td>
-                        </tr>
+                        {people.map((person) => <UserItem person={person} />)}
                     </tbody>
                 </table>
             </div>
