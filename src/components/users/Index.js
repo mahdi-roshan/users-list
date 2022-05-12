@@ -18,7 +18,7 @@ export default function UsersPage() {
         <div className="container py-5">
             <div className="row">
                 <div className="col-12 d-flex justify-content-between">
-                    <ModalAddUser show={show} handleClose={handleClose} handleShow={handleShow} />
+                    <ModalAddUser  show={show} handleClose={handleClose} handleShow={handleShow} />
                 </div>
                 <div className="col-12 mt-3">
                     <div class="card">
