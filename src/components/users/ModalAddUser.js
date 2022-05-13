@@ -3,8 +3,15 @@ import { Modal, Button } from 'react-bootstrap'
 import UserForm from './UserForm'
 
 export default function ModalAddUser({ setUsers }) {
-
-    const [modalUser, setModalUser] = useState({});
+    const [modalUser, setModalUser] = useState({
+        name: '',
+        family: '',
+        userName: '',
+        email: '',
+        birthday: '',
+        gender: '',
+        role: ''
+    });
 
 
     // show and disable modal 
