@@ -6,11 +6,10 @@ export default function UsersList({ list }) {
     return (
         <>
             {list.length
-                ? <div class="table-responsive">
-                    <table class="table">
-                        <thead class="thead-light">
+                ? <div className="table-responsive">
+                    <table className="table">
+                        <thead className="thead-light">
                             <tr>
-                                <th scope="col">Id</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Family</th>
                                 <th scope="col">Username</th>
@@ -21,8 +20,8 @@ export default function UsersList({ list }) {
                                 <th scope="col" >Action</th>
                             </tr>
                         </thead>
-                        <tbody class="customtable">
-                            {list.map((user) => <UserItem person={user} />)}
+                        <tbody className="customtable">
+                            {list.map((user , index) => <UserItem key={index} person={user} />)}
                         </tbody>
                     </table>
                 </div>

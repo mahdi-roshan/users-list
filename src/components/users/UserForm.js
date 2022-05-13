@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Form } from 'react-bootstrap'
-export default function UserForm() {
+import { Button } from 'react-bootstrap'
+export default function UserForm({ setModalUser, handleClose }) {
     const [user, setUser] = useState({
         name: '',
         family: '',
@@ -12,14 +13,14 @@ export default function UserForm() {
     })
 
     const handleSubmit = e => {
-        
+        e.preventDefault();
+        setModalUser(user)
     }
 
     const handleInput = e => {
-        console.log(e.target.name)
         let name = e.target.name;
         let value = e.target.value;
-
+        
         setUser(prevState => {
             return {
                 ...prevState,
@@ -74,6 +75,12 @@ export default function UserForm() {
                     </Form.Group>
                 </div>
             </div>
+            <Button variant="secondary" onClick={handleClose}>
+                Close
+            </Button>
+            <Button type="submit" variant="primary" onClick={handleClose}>
+                Add
+            </Button>
         </form>
     )
 }

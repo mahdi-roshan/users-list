@@ -1,13 +1,12 @@
 import { BiEditAlt } from 'react-icons/bi';
 import { AiOutlineDelete } from 'react-icons/ai';
 
-export default function UserItem({ person }) {
+export default function UserItem({ person}) {
     return (
         <tr>
-            <td>{person.id}</td>
             <td>{person.name}</td>
             <td>{person.family}</td>
-            <td>{person.username}</td>
+            <td>{person.userName}</td>
             <td>{person.email}</td>
             <td>{person.birthday}</td>
             <td>{person.gender}</td>
