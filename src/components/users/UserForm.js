@@ -20,7 +20,7 @@ export default function UserForm({ setModalUser, handleClose }) {
     const handleInput = e => {
         let name = e.target.name;
         let value = e.target.value;
-        
+
         setUser(prevState => {
             return {
                 ...prevState,
@@ -75,12 +75,15 @@ export default function UserForm({ setModalUser, handleClose }) {
                     </Form.Group>
                 </div>
             </div>
-            <Button variant="secondary" onClick={handleClose}>
-                Close
-            </Button>
-            <Button type="submit" variant="primary" onClick={handleClose}>
-                Add
-            </Button>
+            <hr />
+            <div className="d-flex justify-content-end mt-2">
+                <Button className="me-3" variant="secondary" onClick={handleClose}>
+                    Close
+                </Button>
+                <Button type="submit" variant="primary" onClick={handleClose}>
+                    Add
+                </Button>
+            </div>
         </form>
     )
 }

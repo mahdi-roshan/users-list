@@ -5,7 +5,11 @@ import ModalAddUser from './ModalAddUser';
 
 
 export default function UsersPage() {
+
+    // users list for show in UsersList component
+    // setUsers will set in ModalAddUser component
     const [users , setUsers] = useState([]);
+
     return (
         <div className="container py-5">
             <div className="row">
