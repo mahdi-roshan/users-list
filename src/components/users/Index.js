@@ -18,7 +18,7 @@ export default function UsersPage() {
                 </div>
                 <div className="col-12 mt-3">
                     <div className="card">
-                        <UsersList list={users}/>
+                        <UsersList list={users} setUsers={setUsers}/>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,8 @@ import { Modal, Button } from 'react-bootstrap'
 import UserForm from './UserForm'
 
 export default function ModalAddUser({ setUsers }) {
-    const [modalUser, setModalUser] = useState({
+    const [user, setUser] = useState({
+        id: null,
         name: '',
         family: '',
         userName: '',
@@ -13,7 +14,6 @@ export default function ModalAddUser({ setUsers }) {
         role: ''
     });
 
-
     // show and disable modal 
     const [show, setShow] = useState(false);
     const handleClose = () => {
@@ -22,7 +22,7 @@ export default function ModalAddUser({ setUsers }) {
         setUsers(prevState => {
             return [
                 ...prevState,
-                modalUser
+                user
             ]
         })
     }
@@ -37,7 +37,7 @@ export default function ModalAddUser({ setUsers }) {
                     <Modal.Title>Add user form</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <UserForm setModalUser={setModalUser} handleClose={handleClose} />
+                    <UserForm setUser={setUser} handleClose={handleClose} />
                 </Modal.Body>
             </Modal>
         </>

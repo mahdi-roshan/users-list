@@ -1,8 +1,16 @@
 import UserItem from './UserItem'
 
 
-export default function UsersList({ list }) {
+export default function UsersList({ list , setUsers}) {
 
+    function deleteUser(key){
+        setUsers(prevState => {
+            return [
+                ...prevState.filter(item => item.id !== key)
+            ]
+        })
+    }
+    
     return (
         <>
             {list.length
@@ -10,6 +18,7 @@ export default function UsersList({ list }) {
                     <table className="table">
                         <thead className="thead-light">
                             <tr>
+                                <th>Id</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Family</th>
                                 <th scope="col">Username</th>
@@ -21,7 +30,7 @@ export default function UsersList({ list }) {
                             </tr>
                         </thead>
                         <tbody className="customtable">
-                            {list.map((user , index) => <UserItem key={index} person={user} />)}
+                            {list.map((user) => <UserItem key={user.id} person={user} deleteUser={deleteUser} />)}
                         </tbody>
                     </table>
                 </div>
