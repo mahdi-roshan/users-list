@@ -10,6 +10,10 @@ export default function UsersList({ list , setUsers}) {
             ]
         })
     }
+
+    function editUser (key , data){
+        
+    }
     
     return (
         <>
@@ -30,7 +34,7 @@ export default function UsersList({ list , setUsers}) {
                             </tr>
                         </thead>
                         <tbody className="customtable">
-                            {list.map((user) => <UserItem key={user.id} person={user} deleteUser={deleteUser} />)}
+                            {list.map((user) => <UserItem key={user.id} person={user} deleteUser={deleteUser} editUser={editUser}/>)}
                         </tbody>
                     </table>
                 </div>
