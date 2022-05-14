@@ -6,11 +6,6 @@ export default function UserFormEdit({ person , edit }) {
 
     const [info, setInfo] = useState(person)
 
-    const handleSubmit = e => {
-
-    }
-
-
     const handleInput = e => {
         let name = e.target.name;
         let value = e.target.value;

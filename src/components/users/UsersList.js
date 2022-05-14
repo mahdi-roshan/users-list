@@ -12,7 +12,10 @@ export default function UsersList({ list , setUsers}) {
     }
 
     function editUser (key , data){
-        
+        let item = list.find(user => user.id === key)
+        item = data;
+        let newUsers = list.filter(user => user.id !== key)
+        setUsers([...newUsers,item])
     }
     
     return (
