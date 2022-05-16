@@ -1,23 +1,46 @@
 import UserItem from './UserItem'
+import Swal from 'sweetalert2'
 
+export default function UsersList({ list, setUsers }) {
 
-export default function UsersList({ list , setUsers}) {
-
-    function deleteUser(key){
-        setUsers(prevState => {
-            return [
-                ...prevState.filter(item => item.id !== key)
-            ]
+    function deleteUser(key) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                setUsers(prevState => {
+                    return [
+                        ...prevState.filter(item => item.id !== key)
+                    ]
+                })
+                Swal.fire(
+                    'Deleted!',
+                    'The record has been deleted',
+                    'success'
+                )
+            }
         })
+
     }
 
-    function editUser (key , data){
+    function editUser(key, data) {
         let item = list.find(user => user.id === key)
         item = data;
         let newUsers = list.filter(user => user.id !== key)
-        setUsers([...newUsers,item])
+        setUsers([...newUsers, item])
+        Swal.fire(
+            '',
+            'The record has been edited',
+            'success'
+        )
     }
-    
+
     return (
         <>
             {list.length
@@ -37,7 +60,7 @@ export default function UsersList({ list , setUsers}) {
                             </tr>
                         </thead>
                         <tbody className="customtable">
-                            {list.map((user) => <UserItem key={user.id} person={user} deleteUser={deleteUser} editUser={editUser}/>)}
+                            {list.map((user) => <UserItem key={user.id} person={user} deleteUser={deleteUser} editUser={editUser} />)}
                         </tbody>
                     </table>
                 </div>

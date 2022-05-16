@@ -13,10 +13,13 @@ export default function UserForm({ setUser, handleClose }) {
         setUser(prevState => {
             return {
                 ...prevState,
-                id : Math.floor(Math.random() * 10000),
+                id: Math.floor(Math.random() * 10000),
                 [name]: value
             }
         })
+
+        name = '';
+        value = '';
     }
 
     return (
@@ -25,31 +28,31 @@ export default function UserForm({ setUser, handleClose }) {
                 <div className="col-md-6">
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Name</Form.Label>
-                        <Form.Control name="name" type="text" onChange={handleInput} required/>
+                        <Form.Control name="name" type="text" onChange={handleInput} required />
                     </Form.Group>
                 </div>
                 <div className="col-md-6">
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Family</Form.Label>
-                        <Form.Control name="family" type="text" onChange={handleInput} required/>
+                        <Form.Control name="family" type="text" onChange={handleInput} required />
                     </Form.Group>
                 </div>
                 <div className="col-md-6">
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Username</Form.Label>
-                        <Form.Control name="userName" type="text" onChange={handleInput} required/>
+                        <Form.Control name="userName" type="text" onChange={handleInput} required />
                     </Form.Group>
                 </div>
                 <div className="col-md-6">
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control name="email" type="text" onChange={handleInput} required/>
+                        <Form.Control name="email" type="text" onChange={handleInput} required />
                     </Form.Group>
                 </div>
                 <div className="col-md-6">
                     <Form.Group controlId="dob">
                         <Form.Label>Birthday</Form.Label>
-                        <Form.Control type="date" name="birthday" placeholder="Date of Birth" onChange={handleInput} required/>
+                        <Form.Control type="date" name="birthday" placeholder="Date of Birth" onChange={handleInput} required />
                     </Form.Group>
                 </div>
                 <div className="col-md-6">

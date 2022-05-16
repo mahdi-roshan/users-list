@@ -6,13 +6,12 @@ import ModalAddUser from './ModalAddUser';
 
 export default function UsersPage() {
 
-    // users list for show in UsersList component
-    // setUsers will set in ModalAddUser component
+    // users state for show edit or delete records 
     const [users , setUsers] = useState([]);
 
     return (
-        <div className="container py-5">
-            <div className="row">
+        <div className="container py-5 mt-5">
+            <div className="row align-items-center">
                 <div className="col-12 d-flex justify-content-between">
                     <ModalAddUser setUsers={setUsers}/>
                 </div>

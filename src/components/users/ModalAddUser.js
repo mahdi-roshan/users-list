@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap'
 import UserForm from './UserForm'
+import ToastNotif from '../ToastNotif'
 
 export default function ModalAddUser({ setUsers }) {
+
+    // user state for add user
     const [user, setUser] = useState({
         id: null,
         name: '',
@@ -15,9 +18,10 @@ export default function ModalAddUser({ setUsers }) {
     });
 
     // show and disable modal 
-    const [show, setShow] = useState(false);
-    const handleClose = () => {
-        setShow(false);
+    const [showModal, setShowModal] = useState(false);
+    const handleCloseModal = () => {
+        setShowModal(false);
+        setShowToast(true);
         // send users list to parent component for show
         setUsers(prevState => {
             return [
@@ -25,21 +29,29 @@ export default function ModalAddUser({ setUsers }) {
                 user
             ]
         })
+
+        setTimeout(() => {
+            setShowToast(false);
+        }, 2000);
+
     }
-    const handleShow = () => setShow(true);
+    const handleShowModal = () => setShowModal(true);
+
+    const [showToast, setShowToast] = useState(false)
 
     return (
         <>
-            <h5 className="card-title m-b-0">User list table</h5>
-            <button className="btn btn-primary" onClick={handleShow}>Add user</button>
-            <Modal show={show} onHide={handleClose} centered>
+            <h3 className="card-title m-b-0">User list</h3>
+            <button className="btn btn-primary" onClick={handleShowModal}>Add user</button>
+            <Modal show={showModal} onHide={handleCloseModal} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Add user form</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <UserForm setUser={setUser} handleClose={handleClose} />
+                    <UserForm setUser={setUser} handleClose={handleCloseModal} />
                 </Modal.Body>
             </Modal>
+            <ToastNotif show={showToast} message="User successfuly added" className="mb-5"/>
         </>
     )
 }
