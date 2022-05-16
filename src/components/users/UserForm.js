@@ -1,6 +1,14 @@
+import { useState } from 'react'
 import { Form } from 'react-bootstrap'
 import { Button } from 'react-bootstrap'
+
 export default function UserForm({ setUser, handleClose }) {
+
+    const [error , setError] = useState({
+        name : false ,
+        fmaily : false ,
+        
+    })
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -17,9 +25,6 @@ export default function UserForm({ setUser, handleClose }) {
                 [name]: value
             }
         })
-
-        name = '';
-        value = '';
     }
 
     return (
@@ -29,6 +34,7 @@ export default function UserForm({ setUser, handleClose }) {
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Name</Form.Label>
                         <Form.Control name="name" type="text" onChange={handleInput} required />
+                        <span className="text-danger">please enter the name</span>
                     </Form.Group>
                 </div>
                 <div className="col-md-6">

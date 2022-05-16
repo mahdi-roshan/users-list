@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap'
 import UserForm from './UserForm'
 import ToastNotif from '../ToastNotif'
+import validator from 'validator';
 
 export default function ModalAddUser({ setUsers }) {
 
@@ -21,14 +22,34 @@ export default function ModalAddUser({ setUsers }) {
     const [showModal, setShowModal] = useState(false);
     const handleCloseModal = () => {
         setShowModal(false);
-        setShowToast(true);
-        // send users list to parent component for show
-        setUsers(prevState => {
-            return [
-                ...prevState,
-                user
-            ]
-        })
+
+        if (!validator.isEmpty(user.name)
+            && !validator.isEmpty(user.family)
+            && !validator.isEmpty(user.userName)
+            && !validator.isEmpty(user.email)
+            && !validator.isEmpty(user.birthday)
+            && !validator.isEmpty(user.gender)
+            && !validator.isEmpty(user.role)) {
+            // send users list to parent component for show
+            setUsers(prevState => {
+                return [
+                    ...prevState,
+                    user
+                ]
+            })
+
+            setShowToast(true);
+            setUser({
+                id: null,
+                name: '',
+                family: '',
+                userName: '',
+                email: '',
+                birthday: '',
+                gender: '',
+                role: ''
+            })
+        }
 
         setTimeout(() => {
             setShowToast(false);
@@ -51,7 +72,7 @@ export default function ModalAddUser({ setUsers }) {
                     <UserForm setUser={setUser} handleClose={handleCloseModal} />
                 </Modal.Body>
             </Modal>
-            <ToastNotif show={showToast} message="User successfuly added" className="mb-5"/>
+            <ToastNotif show={showToast} message="User successfuly added" className="mb-5" />
         </>
     )
 }
