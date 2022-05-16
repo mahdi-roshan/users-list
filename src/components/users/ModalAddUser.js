@@ -48,7 +48,7 @@ export default function ModalAddUser({ setUsers }) {
                     <Modal.Title>Add user form</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <UserForm setUser={setUser} handleClose={handleCloseModal} />
+                    <UserForm user={user} setUser={setUser} handleClose={handleCloseModal} />
                 </Modal.Body>
             </Modal>
             <ToastNotif show={showToast} message="User successfuly added" className="mb-5"/>
