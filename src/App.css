@@ -43,6 +43,10 @@ h3 {
     margin-bottom: 10px;
 }
 
+.toast-icon{
+    font-size: 2rem;
+}
+
 
 .table {
     width: 100%;

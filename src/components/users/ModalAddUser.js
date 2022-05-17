@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Modal, Button } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 import UserForm from './UserForm'
 import ToastNotif from '../ToastNotif'
 
@@ -21,7 +21,14 @@ export default function ModalAddUser({ setUsers }) {
     const [showModal, setShowModal] = useState(false);
     const handleCloseModal = () => {
         setShowModal(false);
-
+        if (user.name !== ''
+            && user.family !== ''
+            && user.userName !== ''
+            && user.email !== ''
+            && user.birthday !== ''
+            && user.gender !== ''
+            && user.role !== ''
+        ) {
             // send users list to parent component for show
             setUsers(prevState => {
                 return [
@@ -29,7 +36,6 @@ export default function ModalAddUser({ setUsers }) {
                     user
                 ]
             })
-
             setShowToast(true);
             setUser({
                 id: null,
@@ -41,6 +47,8 @@ export default function ModalAddUser({ setUsers }) {
                 gender: '',
                 role: ''
             })
+        }
+
 
         setTimeout(() => {
             setShowToast(false);

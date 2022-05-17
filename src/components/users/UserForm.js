@@ -7,7 +7,7 @@ const rules = {
     name: 'required',
     family: 'required',
     userName: 'required|min:5',
-    date: 'required',
+    birthday: 'required',
     gender: 'required',
     role: 'required',
     email: 'required|email',
@@ -51,9 +51,6 @@ export default function UserForm({ user, setUser, handleClose }) {
                 [name]: value
             }
         })
-
-        name = '';
-        value = '';
     }
 
     return (
@@ -91,7 +88,7 @@ export default function UserForm({ user, setUser, handleClose }) {
                     <Form.Group controlId="dob">
                         <Form.Label>Birthday</Form.Label>
                         <Form.Control type="date" name="birthday" placeholder="Date of Birth" onChange={handleInput} />
-                        <small className="text-danger">{errors.date}</small>
+                        <small className="text-danger">{errors.birthday}</small>
                     </Form.Group>
                 </div>
                 <div className="col-md-6">

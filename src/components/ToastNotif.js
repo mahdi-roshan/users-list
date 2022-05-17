@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { Button, Toast, ToastContainer } from "react-bootstrap";
+
+import { Toast, ToastContainer } from "react-bootstrap";
 import { AiFillCheckCircle } from 'react-icons/ai';
 
-export default function ToastNotif({ show , message }) {
+export default function ToastNotif({ show, message }) {
     return (
         <>
             <ToastContainer className="p-3" position='top-center'>
                 <Toast show={show}>
                     <Toast.Header closeButton={false}>
-                        <AiFillCheckCircle className="text-success me-3"/>
+                        <AiFillCheckCircle className="text-success me-3 toast-icon" />
                         <strong className="me-auto">Success</strong>
                     </Toast.Header>
                     <Toast.Body>{message}</Toast.Body>
