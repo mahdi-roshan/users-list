@@ -1,7 +1,12 @@
+import { useContext } from 'react'
 import UserItem from './UserItem'
 import Swal from 'sweetalert2'
+import UsersContext from './../../Contexts/users'
 
 export default function UsersList({ list, setUsers }) {
+
+    const usersContext = useContext(UsersContext);
+    const { users } = usersContext;
 
     function deleteUser(key) {
         Swal.fire({
@@ -43,7 +48,7 @@ export default function UsersList({ list, setUsers }) {
 
     return (
         <>
-            {list.length
+            {users.length
                 ? <div className="table-responsive">
                     <table className="table">
                         <thead className="thead-light">
@@ -60,7 +65,7 @@ export default function UsersList({ list, setUsers }) {
                             </tr>
                         </thead>
                         <tbody className="customtable">
-                            {list.map((user) => <UserItem key={user.id} person={user} deleteUser={deleteUser} editUser={editUser} />)}
+                            {users.map((user) => <UserItem key={user.id} person={user} deleteUser={deleteUser} editUser={editUser} />)}
                         </tbody>
                     </table>
                 </div>

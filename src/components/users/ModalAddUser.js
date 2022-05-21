@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useState , useContext } from 'react';
 import { Modal } from 'react-bootstrap'
 import UserForm from './UserForm'
 import ToastNotif from '../ToastNotif'
+import UsersContext from './../../Contexts/users'
+import axios from 'axios'
 
 export default function ModalAddUser({ setUsers }) {
+
+    const usersContext = useContext(UsersContext)
 
     // user state for add user
     const [user, setUser] = useState({
@@ -12,10 +16,12 @@ export default function ModalAddUser({ setUsers }) {
         family: '',
         userName: '',
         email: '',
-        birthday: '',
+        number: '',
         gender: '',
         role: ''
     });
+
+    console.log(usersContext.users)
 
     // show and disable modal 
     const [showModal, setShowModal] = useState(false);
@@ -25,17 +31,18 @@ export default function ModalAddUser({ setUsers }) {
             && user.family !== ''
             && user.userName !== ''
             && user.email !== ''
-            && user.birthday !== ''
+            && user.number !== ''
             && user.gender !== ''
             && user.role !== ''
         ) {
-            // send users list to parent component for show
-            setUsers(prevState => {
-                return [
-                    ...prevState,
-                    user
-                ]
+            axios.post('https://6287d6e560c111c3ead01f77.endapi.io/users' , {
+                email : user.email , 
             })
+            // send users list to parent component for show
+            usersContext.dispatch({type:'add_user' , payload :{
+                user
+            }})
+
             setShowToast(true);
             setUser({
                 id: null,
@@ -71,7 +78,7 @@ export default function ModalAddUser({ setUsers }) {
                     <UserForm user={user} setUser={setUser} handleClose={handleCloseModal} />
                 </Modal.Body>
             </Modal>
-            <ToastNotif show={showToast} message="User successfuly added" className="mb-5" />
+            {/* <ToastNotif show={showToast} message="User successfuly added" className="mb-5" /> */}
         </>
     )
 }

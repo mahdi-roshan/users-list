@@ -7,7 +7,7 @@ const rules = {
     name: 'required',
     family: 'required',
     userName: 'required|min:5',
-    birthday: 'required',
+    number: 'required',
     gender: 'required',
     role: 'required',
     email: 'required|email',
@@ -23,10 +23,8 @@ export default function UserForm({ user, setUser, handleClose }) {
             if (v.fails()) {
                 const errs = v.getErrors();
                 Object.entries(errs).forEach(([key, value]) => errs[key] = value[0])
-                
                 return reject(errs)
             }
-    
             return resolve(true)
         })
     }
@@ -47,7 +45,6 @@ export default function UserForm({ user, setUser, handleClose }) {
         setUser(prevState => {
             return {
                 ...prevState,
-                id: Math.floor(Math.random() * 10000),
                 [name]: value
             }
         })
