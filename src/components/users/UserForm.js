@@ -6,8 +6,8 @@ import Validator from 'Validator'
 const rules = {
     name: 'required',
     family: 'required',
+    password : 'required|min:8',
     userName: 'required|min:5',
-    number: 'required',
     gender: 'required',
     role: 'required',
     email: 'required|email',
@@ -69,6 +69,13 @@ export default function UserForm({ user, setUser, handleClose }) {
                 </div>
                 <div className="col-md-6">
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control name="password" type="password" onChange={handleInput} />
+                        <small className="text-danger">{errors.password}</small>
+                    </Form.Group>
+                </div>
+                <div className="col-md-6">
+                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Username</Form.Label>
                         <Form.Control name="userName" type="text" onChange={handleInput} />
                         <small className="text-danger">{errors.userName}</small>
@@ -79,13 +86,6 @@ export default function UserForm({ user, setUser, handleClose }) {
                         <Form.Label>Email</Form.Label>
                         <Form.Control name="email" type="text" onChange={handleInput} />
                         <small className="text-danger">{errors.email}</small>
-                    </Form.Group>
-                </div>
-                <div className="col-md-6">
-                    <Form.Group controlId="dob">
-                        <Form.Label>Birthday</Form.Label>
-                        <Form.Control type="date" name="birthday" placeholder="Date of Birth" onChange={handleInput} />
-                        <small className="text-danger">{errors.birthday}</small>
                     </Form.Group>
                 </div>
                 <div className="col-md-6">
@@ -112,7 +112,7 @@ export default function UserForm({ user, setUser, handleClose }) {
                 <Button className="me-3" variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
-                <Button type="submit" variant="primary">
+                <Button onClick={handleSubmit} type="submit" variant="primary">
                     Add
                 </Button>
             </div>

@@ -53,19 +53,17 @@ export default function UsersList({ list, setUsers }) {
                     <table className="table">
                         <thead className="thead-light">
                             <tr>
-                                <th>Id</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Family</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Birthday</th>
                                 <th scope="col">Gender</th>
                                 <th scope="col">Role</th>
                                 <th scope="col" >Action</th>
                             </tr>
                         </thead>
                         <tbody className="customtable">
-                            {users.map((user) => <UserItem key={user.id} person={user} deleteUser={deleteUser} editUser={editUser} />)}
+                            {users.map((user , index) => <UserItem key={index} person={user} deleteUser={deleteUser} editUser={editUser} />)}
                         </tbody>
                     </table>
                 </div>

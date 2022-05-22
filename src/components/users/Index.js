@@ -26,7 +26,7 @@ export default function UsersPage() {
                     </div>
                     <div className="col-12 mt-3">
                         <div className="card">
-                            {/* <UsersList  /> */}
+                            <UsersList  />
                         </div>
                     </div>
                 </div>

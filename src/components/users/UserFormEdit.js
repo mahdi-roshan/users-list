@@ -20,7 +20,6 @@ export default function UserFormEdit({ person , edit }) {
 
     return (
         <tr>
-            <td>{person.id}</td>
             <td>
                 <Form.Control value={info.name} name="name" type="text" onChange={handleInput} required /></td>
             <td>
@@ -29,8 +28,6 @@ export default function UserFormEdit({ person , edit }) {
                 <Form.Control value={info.userName} name="userName" type="text" onChange={handleInput} required /></td>
             <td>
                 <Form.Control value={info.email} name="email" type="text" onChange={handleInput} required /></td>
-            <td>
-                <Form.Control value={info.birthday} type="birthday" name="birthday" onChange={handleInput} placeholder="Date of Birth" required /></td>
             <td>
                 <Form.Select value={info.gender} name="gender" aria-label="Default select example" onChange={handleInput} required>
                     <option value="">Please select gender</option>

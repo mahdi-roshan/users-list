@@ -6,7 +6,6 @@ import UserFormEdit from './UserFormEdit'
 export default function UserItem({ person, deleteUser, editUser }) {
 
     const [edit, setEdit] = useState(false)
-
     const editHandler = (key, data) => {
         editUser(key, data)
         setEdit(false)
@@ -16,12 +15,10 @@ export default function UserItem({ person, deleteUser, editUser }) {
         <>
             {!edit ? (
                 <tr>
-                    <td>{person.id}</td>
                     <td>{person.name}</td>
                     <td>{person.family}</td>
                     <td>{person.userName}</td>
                     <td>{person.email}</td>
-                    <td>{person.birthday}</td>
                     <td>{person.gender}</td>
                     <td>{person.role}</td>
                     <td >
