@@ -17,7 +17,7 @@ export default function UserItem({ person, deleteUser, editUser }) {
                 <tr>
                     <td>{person.name}</td>
                     <td>{person.family}</td>
-                    <td>{person.userName}</td>
+                    <td>{person.username}</td>
                     <td>{person.email}</td>
                     <td>{person.gender}</td>
                     <td>{person.role}</td>
