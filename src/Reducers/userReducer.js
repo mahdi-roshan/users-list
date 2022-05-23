@@ -6,6 +6,8 @@ export default function UserReducer(state, action) {
             return add_user(state, action)
         case 'edit_user':
             return edit_user(state, action)
+        case 'delete_user':
+            return delete_user(state, action)
         default:
             return state
     }
@@ -42,5 +44,15 @@ const edit_user = (state, action) => {
     let newUsers = state.users.filter(user => user.id !== key)
     return {
         users: [...newUsers, item]
+    }
+}
+
+
+const delete_user = (state, action) => {
+    let { key } = action.payload
+    return {
+        users: [
+            ...state.users.filter(item => item.id !== key)
+        ]
     }
 }

@@ -3,6 +3,7 @@ import { BiEditAlt } from 'react-icons/bi';
 import { AiOutlineDelete } from 'react-icons/ai';
 import UserFormEdit from './UserFormEdit'
 import UsersContext from '../../Contexts/users'
+import Swal from 'sweetalert2'
 import axios from 'axios'
 
 export default function UserItem({ person, deleteUser }) {
@@ -30,11 +31,16 @@ export default function UserItem({ person, deleteUser }) {
                         updateData
                     }
                 })
+                Swal.fire(
+                    'Edited!',
+                    'The successfuly edited',
+                    'success'
+                )
             }).catch(err => {
                 console.log(err)
             })
     }
-
+    
     return (
         <>
             {!edit ? (
