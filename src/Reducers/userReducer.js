@@ -4,16 +4,16 @@ export default function UserReducer(state, action) {
             return initUsers(state, action)
         case 'add_user':
             return add_user(state, action)
+        case 'edit_user':
+            return edit_user(state, action)
         default:
             return state
     }
 }
 
 
-let initUsers = (state, action) => {
+const initUsers = (state, action) => {
     let { userList } = action.payload
-    console.log(state.users)
-    console.log(userList)
     return {
         users: [
             ...state.users,
@@ -23,7 +23,7 @@ let initUsers = (state, action) => {
 }
 
 
-let add_user = (state, action) => {
+const add_user = (state, action) => {
     let { user } = action.payload;
     return {
         ...state,
@@ -34,3 +34,13 @@ let add_user = (state, action) => {
     }
 }
 
+
+const edit_user = (state, action) => {
+    let key = action.payload.updateData.id;
+    let item = state.users.find(user => user.id === key)
+    item = action.payload.updateData;
+    let newUsers = state.users.filter(user => user.id !== key)
+    return {
+        users: [...newUsers, item]
+    }
+}

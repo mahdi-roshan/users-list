@@ -21,8 +21,6 @@ export default function UsersPage() {
                 dispatch({type: 'init_users' , payload :{
                     userList : response.data.data
                 }})
-
-                // console.log(state.users)
             }).catch(err => {
                 console.log(err)
             })

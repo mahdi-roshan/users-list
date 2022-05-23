@@ -5,11 +5,9 @@ import { Button } from 'react-bootstrap'
 export default function UserFormEdit({ person , edit }) {
 
     const [info, setInfo] = useState(person)
-
     const handleInput = e => {
         let name = e.target.name;
         let value = e.target.value;
-
         setInfo(prevState => {
             return {
                 ...prevState,
@@ -17,7 +15,7 @@ export default function UserFormEdit({ person , edit }) {
             }
         })
     }
-
+    
     return (
         <tr>
             <td>
@@ -25,7 +23,7 @@ export default function UserFormEdit({ person , edit }) {
             <td>
                 <Form.Control value={info.family} name="family" type="text" onChange={handleInput} required /></td>
             <td>
-                <Form.Control value={info.userName} name="userName" type="text" onChange={handleInput} required /></td>
+                <Form.Control value={info.username} name="username" type="text" onChange={handleInput} required /></td>
             <td>
                 <Form.Control value={info.email} name="email" type="text" onChange={handleInput} required /></td>
             <td>

@@ -9,7 +9,6 @@ export default function ModalAddUser({ setUsers }) {
 
     const usersContext = useContext(UsersContext)
 
-    // user state for add user
     const [user, setUser] = useState({
         name: '',
         password: '',
@@ -19,8 +18,6 @@ export default function ModalAddUser({ setUsers }) {
         gender: '',
         role: ''
     });
-
-    // show and disable modal 
     const [showModal, setShowModal] = useState(false);
 
     const handleCloseModal = () => {
@@ -42,7 +39,6 @@ export default function ModalAddUser({ setUsers }) {
                 gender: user.gender,
                 role: user.role,
             }).then(response => {
-                console.log(response);
                 usersContext.dispatch({
                     type: 'add_user', payload: {
                         user
@@ -65,11 +61,9 @@ export default function ModalAddUser({ setUsers }) {
             })
         }
 
-
         setTimeout(() => {
             setShowToast(false);
         }, 2000);
-
     }
     const handleShowModal = () => setShowModal(true);
 

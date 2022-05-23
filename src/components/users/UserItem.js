@@ -1,14 +1,38 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { BiEditAlt } from 'react-icons/bi';
 import { AiOutlineDelete } from 'react-icons/ai';
 import UserFormEdit from './UserFormEdit'
+import UsersContext from '../../Contexts/users'
+import axios from 'axios'
 
-export default function UserItem({ person, deleteUser, editUser }) {
+export default function UserItem({ person, deleteUser }) {
+
+    const usersContext = useContext(UsersContext);
 
     const [edit, setEdit] = useState(false)
-    const editHandler = (key, data) => {
-        editUser(key, data)
+    const editUser = (key, data) => {
         setEdit(false)
+        let updateData = {
+            id: data.id,
+            email: data.email,
+            name: data.name,
+            password: Math.floor(Math.random() * 100000).toString(),
+            family: data.family,
+            username: data.username,
+            gender: data.gender,
+            role: data.role,
+        }
+        axios
+            .put(`https://6287d6e560c111c3ead01f77.endapi.io/users/${key}`, updateData)
+            .then(response => {
+                usersContext.dispatch({
+                    type: 'edit_user', payload: {
+                        updateData
+                    }
+                })
+            }).catch(err => {
+                console.log(err)
+            })
     }
 
     return (
@@ -27,7 +51,7 @@ export default function UserItem({ person, deleteUser, editUser }) {
                     </td>
                 </tr>
             )
-                : <UserFormEdit person={person} edit={editHandler} />
+                : <UserFormEdit person={person} edit={editUser} />
             }
         </>
 

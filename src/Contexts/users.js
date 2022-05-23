@@ -5,7 +5,8 @@ const usersContext = react.createContext({
     users: [],
     add: () => { },
     editUser: () => { },
-    deleteUser: () => { }
+    deleteUser: () => { },
+    initUsers: () => { }
 });
 
 
