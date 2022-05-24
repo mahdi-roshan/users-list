@@ -3,6 +3,7 @@
 This project is implemented using react and react-bootstrap.
 
 1.This project is made to practice and better understand the concepts of react.
+
 2.I used context and reducer in this project.
 
 ## How run project
