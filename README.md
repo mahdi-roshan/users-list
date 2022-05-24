@@ -6,6 +6,10 @@ This project is implemented using react and react-bootstrap.
 
 2.I used context and reducer in this project.
 
+3.Axios is used in the project for http requests.
+
+4.All requests are sent to endapi.io.
+
 ## How run project
 
 In the project directory, first run:
