@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { Modal } from 'react-bootstrap'
 import UserForm from './UserForm'
 import ToastNotif from '../ToastNotif'
-import UsersContext from './../../Contexts/users'
+import UsersContext from './../../Contexts/Users'
 import axios from 'axios'
 
 export default function ModalAddUser({ setUsers }) {
@@ -25,7 +25,7 @@ export default function ModalAddUser({ setUsers }) {
         if (user.name !== ''
             && user.password !== ''
             && user.family !== ''
-            && user.userName !== ''
+            && user.username !== ''
             && user.email !== ''
             && user.gender !== ''
             && user.role !== ''
@@ -35,7 +35,7 @@ export default function ModalAddUser({ setUsers }) {
                 name: user.name,
                 family: user.family,
                 password: user.password,
-                username: user.userName,
+                username: user.username,
                 gender: user.gender,
                 role: user.role,
             }).then(response => {

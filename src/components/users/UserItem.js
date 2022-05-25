@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { BiEditAlt } from 'react-icons/bi';
 import { AiOutlineDelete } from 'react-icons/ai';
 import UserFormEdit from './UserFormEdit'
-import UsersContext from '../../Contexts/users'
+import UsersContext from '../../Contexts/Users'
 import Swal from 'sweetalert2'
 import axios from 'axios'
 

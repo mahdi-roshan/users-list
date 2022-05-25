@@ -7,7 +7,7 @@ const rules = {
     name: 'required',
     family: 'required',
     password : 'required|min:8',
-    userName: 'required|min:5',
+    username: 'required|min:5',
     gender: 'required',
     role: 'required',
     email: 'required|email',
@@ -76,9 +76,9 @@ export default function UserForm({ user, setUser, handleClose }) {
                 </div>
                 <div className="col-md-6">
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control name="userName" type="text" onChange={handleInput} />
-                        <small className="text-danger">{errors.userName}</small>
+                        <Form.Label>username</Form.Label>
+                        <Form.Control name="username" type="text" onChange={handleInput} />
+                        <small className="text-danger">{errors.username}</small>
                     </Form.Group>
                 </div>
                 <div className="col-md-6">

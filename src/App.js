@@ -1,4 +1,4 @@
-import UsersPage from './components/users/Index'
+import UsersPage from './Components/Users/Index'
 import './App.css'
 
 function App() {

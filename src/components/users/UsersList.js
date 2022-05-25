@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import UserItem from './UserItem'
 import Swal from 'sweetalert2'
 import axios from 'axios'
-import UsersContext from './../../Contexts/users'
+import UsersContext from '../../Contexts/Users'
 
 export default function UsersList({ list, setUsers }) {
 

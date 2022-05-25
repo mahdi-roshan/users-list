@@ -3,10 +3,10 @@ import UsersList from './UsersList';
 import ModalAddUser from './ModalAddUser';
 import axios from 'axios'
 // import contexts
-import UsersContext from './../../Contexts/users'
+import UsersContext from './../../Contexts/Users'
 
 // import reducers
-import UserReducer from './../../Reducers/userReducer'
+import UserReducer from './../../Reducers/UserReducer'
 
 export default function UsersPage() {
 
